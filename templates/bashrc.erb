@@ -1,0 +1,45 @@
+# Puppet Labs Bashrc
+
+# Load some colors if available
+which dircolors >/dev/null && eval $(dircolors)
+
+if [ `uname` == "Linux" ]; then
+  alias ls="ls --color=auto"
+else
+  if [ `uname` != 'SunOS' ]; then
+    alias ls="ls -GF"
+  fi
+fi
+
+alias ll="ls -lFhp"
+
+if [ `uname` != 'SunOS' ]; then
+  alias grep='grep --color=auto'
+fi
+
+# Puppet
+alias p='puppet agent -t'
+alias pb='puppet agent -t --environment'
+alias pbp='puppet agent -t --environment production'
+alias b='puppet config print environment --section agent'
+alias pd='puppet agent --disable'
+alias pe='puppet agent --enable'
+alias pn='puppet agent -t --noop'
+alias pend='puppet agent --enable && puppet agent -t --noop; puppet agent --disable'
+alias pq='while [ -e $(puppet config print vardir)/state/agent_catalog_run.lock ] ; do echo -n \. ; sleep 1; done ; puppet agent --test'
+alias pat='echo "puppet --test --environment production" | at now + 3 days'
+alias pc='jq . < $(puppet config print vardir)/client_data/catalog/$(facter -p certname).json'
+
+# Timestamp history
+export HISTTIMEFORMAT="%F %T "
+
+# Bigger history
+HISTSIZE=10000
+
+PATH=$PATH:/opt/puppetlabs/bin
+<% if scope.lookupvar('osfamily') == 'RedHat' -%>
+PATH=$PATH:/usr/local/bin
+<% end -%>
+
+export PS1="<%= scope.lookupvar('prompt_color') %>$PS1\[\033[0m\]"
+export EDITOR=vi
