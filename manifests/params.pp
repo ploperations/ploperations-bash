@@ -1,6 +1,6 @@
+# default parameter values
 class bash::params {
-
-  case $::kernel {
+  case $facts['kernel'] {
     'Linux': {
       $bashpackage           = 'bash'
       $bashcompletionpackage = 'bash-completion'
@@ -12,12 +12,21 @@ class bash::params {
       $bashpath              = '/usr/local/bin/bash'
     }
     'SunOS': {
-      $bashpackage = 'shell/bash'
-      $bashpath    = '/usr/bin/bash'
+      $bashpackage           = 'shell/bash'
+      $bashcompletionpackage = undef
+      $bashpath              = '/usr/bin/bash'
+    }
+    'Darwin': {
+      $bashpackage           = undef
+      $bashcompletionpackage = undef
+      $bashpath              = undef
+    }
+    default: {
+      fail("${facts['kernel']} not supported by this module")
     }
   }
 
-  $root_home = $::kernel ? {
+  $root_home = $facts['kernel'] ? {
     'Darwin' => '/var/root',
     default  => '/root',
   }

@@ -1,0 +1,66 @@
+{
+  "name": "ploperations-bash",
+  "version": "0.1.0",
+  "author": "InfraCore at Puppet",
+  "summary": "",
+  "license": "Apache-2.0",
+  "source": "https://github.com/ploperations/ploperations-bash.git",
+  "project_page": "https://github.com/ploperations/ploperations-bash",
+  "issues_url": "https://github.com/ploperations/ploperations-bash/issues",
+  "dependencies": [
+    {
+      "name": "ploperations/classification",
+      "version_requirement": ">= 0.1 < 2.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04",
+        "18.04"
+      ]
+    },
+    {
+      "operatingsystem": "Darwin",
+      "operatingsystemrelease": [
+        "16"
+      ]
+    },
+    {
+      "operatingsystem": "Solaris",
+      "operatingsystemrelease": [
+        "10",
+        "11"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.7.0 < 7.0.0"
+    }
+  ],
+  "pdk-version": "1.7.1",
+  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
+  "template-ref": "1.7.1-0-g810b982"
+}
