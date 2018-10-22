@@ -1,10 +1,11 @@
+# install and configure bash
 class bash (
   $bashpackage           = $bash::params::bashpackage,
   $bashcompletionpackage = $bash::params::bashcompletionpackage,
   $bashpath              = $bash::params::bashpath,
   $root_home             = $bash::params::root_home,
-  $ensure                = 'latest',
-) inherits ::bash::params {
+  $ensure                = latest,
+) inherits bash::params {
 
   # Set the root prompt color based on stage.
   #   - prod nodes get red
@@ -32,7 +33,7 @@ class bash (
 
   file {
     default:
-      ensure => 'present',
+      ensure => present,
       owner  => 'root',
       group  => '0',
       mode   => '0755',
@@ -41,10 +42,10 @@ class bash (
       content => template('bash/bashrc.erb'),
       mode    => '0750',
     ;
-    "/etc/profile.d":
+    '/etc/profile.d':
       ensure => 'directory',
     ;
-    "/etc/profile.d/bashrc.sh":
+    '/etc/profile.d/bashrc.sh':
       source => 'puppet:///modules/bash/bashrc.sh'
     ;
   }
@@ -57,10 +58,10 @@ class bash (
       | END
 
     file { "${root_home}/.bash_profile":
-      ensure => 'present',
-      owner  => 'root',
-      group  => '0',
-      mode   => '0755',
+      ensure  => 'present',
+      owner   => 'root',
+      group   => '0',
+      mode    => '0755',
       content => $profile_content,
     }
   }
