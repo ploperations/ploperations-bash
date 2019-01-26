@@ -6,3 +6,4 @@ fixtures:
     classification: "git://github.com/ploperations/ploperations-classification"
   forge_modules:
 #     classification: "ploperations/classification"
+    stdlib: "puppetlabs/stdlib"

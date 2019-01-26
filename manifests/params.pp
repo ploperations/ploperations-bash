@@ -1,4 +1,7 @@
-# default parameter values
+# @summary Default parameter values
+#
+# Default parameter values
+#
 class bash::params {
   case $facts['kernel'] {
     'Linux': {
