@@ -38,17 +38,17 @@ class bash (
     default        => '\[\033[31m\]',
   }
 
-  if $bashpackage {
-    package { $bashpackage:
+  if $bashpackage and ! defined(Package['bash']) {
+    ensure_packages([$bashpackage], {
       ensure => $ensure,
       alias  => 'bash',
-    }
+    })
   }
 
   if $bashcompletionpackage {
-    package { $bashcompletionpackage:
+    ensure_packages([$bashcompletionpackage], {
       ensure => $ensure,
-    }
+    })
   }
 
   file {
