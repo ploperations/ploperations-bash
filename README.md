@@ -1,5 +1,10 @@
 # bash
 
+![](https://img.shields.io/puppetforge/pdk-version/ploperations/bash.svg?style=popout)
+![](https://img.shields.io/puppetforge/v/ploperations/bash.svg?style=popout)
+![](https://img.shields.io/puppetforge/dt/ploperations/bash.svg?style=popout)
+[![Build Status](https://travis-ci.org/ploperations/ploperations-bash.svg?branch=master)](https://travis-ci.org/ploperations/ploperations-bash)
+
 The bash module takes care of installing bash on various platforms.
 
 ## Usage

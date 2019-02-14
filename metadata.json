@@ -1,8 +1,8 @@
 {
   "name": "ploperations-bash",
-  "version": "0.1.0",
-  "author": "InfraCore at Puppet",
-  "summary": "",
+  "version": "1.0.0",
+  "author": "ploperations",
+  "summary": "Install bash on various platforms",
   "license": "Apache-2.0",
   "source": "https://github.com/ploperations/ploperations-bash.git",
   "project_page": "https://github.com/ploperations/ploperations-bash",
