@@ -5,10 +5,15 @@
 # On Debian, /etc/bash.bashrc is already loaded by /etc/profile, but
 # /etc/bashrc doesn't exist, so this is a no-op.
 #
+# On CentOS/RHEL bashrc sources /etc/profile.d so sourcing
+# /etc/bashrc here creates and infinite loop.
+#
 # On OS X, /etc/profile.d isn't searched.
 #
 # On Solaris, /etc/profile.d isn't searched, and /etc/bashrc doesn't exist.
 
-if [ "$PS1" -a -n "$BASH" -a "$BASH" != "/bin/sh" -a -r /etc/bashrc ]; then
-  source /etc/bashrc
+if  [ "$(facter osfamily)" != "RedHat" ] ; then
+  if [ "$PS1" -a -n "$BASH" -a "$BASH" != "/bin/sh" -a -r /etc/bashrc ]; then
+    source /etc/bashrc
+  fi
 fi
