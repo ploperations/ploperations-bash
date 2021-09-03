@@ -25,7 +25,6 @@ class bash (
   Stdlib::Absolutepath           $root_home             = $bash::params::root_home,
   $ensure                                               = latest,
 ) inherits bash::params {
-
   # Set the root prompt color based on stage.
   #   - prod nodes get red
   #   - test/stage nodes get blue
@@ -40,34 +39,34 @@ class bash (
 
   if $bashpackage and ! defined(Package['bash']) {
     ensure_packages([$bashpackage], {
-      ensure => $ensure,
-      alias  => 'bash',
+        ensure => $ensure,
+        alias  => 'bash',
     })
   }
 
   if $bashcompletionpackage {
     ensure_packages([$bashcompletionpackage], {
-      ensure => $ensure,
+        ensure => $ensure,
     })
   }
 
   file {
     default:
-      ensure => present,
+      ensure => file,
       owner  => 'root',
       group  => '0',
       mode   => '0755',
-    ;
+      ;
     "${root_home}/.bashrc":
       content => template('bash/bashrc.erb'),
       mode    => '0750',
-    ;
+      ;
     '/etc/profile.d':
       ensure => 'directory',
-    ;
+      ;
     '/etc/profile.d/bashrc.sh':
       source => 'puppet:///modules/bash/bashrc.sh'
-    ;
+      ;
   }
 
   if $facts['os']['family'] == 'Solaris' {
@@ -78,7 +77,7 @@ class bash (
       | END
 
     file { "${root_home}/.bash_profile":
-      ensure  => 'present',
+      ensure  => 'file',
       owner   => 'root',
       group   => '0',
       mode    => '0755',
