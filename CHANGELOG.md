@@ -2,13 +2,28 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [2.0.0](https://github.com/ploperations/ploperations-bash/tree/2.0.0) (2021-09-18)
+
+[Full Changelog](https://github.com/ploperations/ploperations-bash/compare/1.1.1...2.0.0)
+
+### Changed
+
+- Dropped old Puppet versions, added new ones, sync to current standards [\#17](https://github.com/ploperations/ploperations-bash/pull/17) ([genebean](https://github.com/genebean))
+
 ## [1.1.1](https://github.com/ploperations/ploperations-bash/tree/1.1.1) (2020-01-15)
 
-[Full Changelog](https://github.com/ploperations/ploperations-bash/compare/1.0.0...1.1.1)
+[Full Changelog](https://github.com/ploperations/ploperations-bash/compare/1.1.0...1.1.1)
 
 ### Fixed
 
 - \(INFC-19257\) Revert "Fix infinite loop for shell sourcing on RHEL systems" [\#15](https://github.com/ploperations/ploperations-bash/pull/15) ([genebean](https://github.com/genebean))
+
+## [1.1.0](https://github.com/ploperations/ploperations-bash/tree/1.1.0) (2020-01-09)
+
+[Full Changelog](https://github.com/ploperations/ploperations-bash/compare/1.0.0...1.1.0)
+
+### Fixed
+
 - Fix infinite loop for shell sourcing on RHEL systems [\#8](https://github.com/ploperations/ploperations-bash/pull/8) ([stahnma](https://github.com/stahnma))
 
 ## [1.0.0](https://github.com/ploperations/ploperations-bash/tree/1.0.0) (2019-02-14)
